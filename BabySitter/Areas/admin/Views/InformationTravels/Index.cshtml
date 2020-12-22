@@ -1,0 +1,33 @@
+﻿@model IEnumerable<BabySitter.Models.InformationTravel>
+
+@{
+    ViewBag.Title = "Tin tức";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+<div class="row">
+    <div class="col-xl-10">
+        <h5 class="box-title">Bài viết <a href="@Url.Action("Create", "InformationTravels")" class="btn btn-outline-primary btn-rounded">thêm mới</a></h5>
+        <div class="row">
+            @foreach (var item in Model)
+            {
+
+
+                <div class="col-xl-6 col-lg-6 col-md-12 col-sm-12 col-12 col-lg-6 col-md-6 col-sm-12 col-12">
+                    <div class="card">
+                        <img class="img-fluid" src="~/Content/upload/@item.img" alt="Card image cap">
+                        <div class="card-body">
+                            <h3 class="card-title">@item.title</h3>
+                            @*<p class="card-text">Faucibus orci luctus et ultrices posuere cubilia Curae Integer quis ipsum in augue posuere congue.</p>*@
+                            <footer class="mr-t-30">
+                                <a href="@Url.Action("Edit", "InformationTravels", new { id=item.id_InformationTravel })" class="btn btn-outline-primary btn-rounded">sửa</a>
+                                <a href="@Url.Action("Details", "InformationTravels", new { id=item.id_InformationTravel })" class="btn btn-outline-primary btn-rounded">Chi Tiết</a>
+                                <a href="@Url.Action("Delete", "InformationTravels", new { id=item.id_InformationTravel })" class="btn btn-outline-primary btn-rounded">Xóa</a>
+                            </footer>
+                        </div>
+                    </div>
+                </div>
+            }
+        </div>
+    </div>
+    </div>
+          

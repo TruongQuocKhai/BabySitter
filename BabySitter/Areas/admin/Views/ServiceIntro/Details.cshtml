@@ -1,0 +1,50 @@
+﻿@model BabySitter.Models.db_ServiceIntro
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<h2>Details</h2>
+
+<div>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.service)
+        </dt>
+
+        <dd style="display: block;border: 1px solid #51d2b7;padding: 5px;margin-top: 5px;width: auto;height: 300px;overflow: auto;">
+           @Html.Raw(Model.service)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.intro)
+        </dt>
+
+        <dd style="display: block;border: 1px solid #51d2b7;padding: 5px;margin-top: 5px;width: auto;height: 300px;overflow: auto;">
+           @Html.Raw(Model.intro)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.hide)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.hide)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.datebegin)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.datebegin)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.id_serviceintro }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

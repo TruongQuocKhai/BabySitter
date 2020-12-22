@@ -1,0 +1,46 @@
+﻿@model IEnumerable<BabySitter.Models.Province>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.nameProvince)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.hide)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Area.name_areas)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.nameProvince)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.hide)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Area.name_areas)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.id_province }) |
+            @Html.ActionLink("Details", "Details", new { id=item.id_province }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.id_province })
+        </td>
+    </tr>
+}
+
+</table>

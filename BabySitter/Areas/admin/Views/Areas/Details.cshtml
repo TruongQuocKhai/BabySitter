@@ -1,0 +1,35 @@
+﻿@model BabySitter.Models.Area
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Area</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.name_areas)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.name_areas)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.hide)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.hide)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    <a href="@Url.Action("Edit", "Areas", new { id=Model.id_areas })" class="btn btn-outline-primary btn-rounded">Edit</a>
+    <a href="@Url.Action("Index")" class="btn btn-outline-primary btn-rounded">Back to List</a>
+</p>

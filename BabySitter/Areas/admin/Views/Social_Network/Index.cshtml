@@ -1,0 +1,64 @@
+﻿@model IEnumerable<BabySitter.Models.Social_Network>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<div class="col-md-12 widget-holder">
+    <div class="widget-bg-transparent">
+        <div class="widget-body">
+            <hr />
+            <h5 class="box-title">Social Network</h5>
+            <a href="https://www.flaticon.com/">Download Free Icon</a>
+            <hr />
+            <div class="row">
+
+                <p>
+                    @Html.ActionLink("Create New", "Create")
+                </p>
+                <table class="table">
+                    <tr>
+                        <th>
+                            @Html.DisplayNameFor(model => model.Social_Network1)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.icon)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.hide)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.order)
+                        </th>
+                        <th></th>
+                    </tr>
+
+                    @foreach (var item in Model)
+                    {
+                        <tr>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Social_Network1)
+                            </td>
+                            <td>
+                               <img style="width:40px; height:auto" src="~/Content/upload/@item.icon" />
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.hide)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.order)
+                            </td>
+                            <td>
+                                @Html.ActionLink("Edit", "Edit", new { id = item.id_Social_Network }) |
+                                @Html.ActionLink("Details", "Details", new { id = item.id_Social_Network }) |
+                                @Html.ActionLink("Delete", "Delete", new { id = item.id_Social_Network })
+                            </td>
+                        </tr>
+                    }
+
+                </table>
+            </div>
+        </div>
+    </div>
+</div>

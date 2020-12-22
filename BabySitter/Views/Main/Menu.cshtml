@@ -1,0 +1,11 @@
+﻿@model IEnumerable<BabySitter.Models.db_Menu>
+
+@foreach(var menu in Model)
+{
+    <li class="nav-item dropdown">  
+      
+         <a href="~/@menu.meta" class="active" aria-expanded="false">@menu.name <b class="caret"></b></a>
+       
+    </li>
+    <!-- ========== Contact dropdown end ==================-->
+}

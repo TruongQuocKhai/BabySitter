@@ -1,0 +1,6 @@
+﻿@model IEnumerable<BabySitter.Models.Category>
+
+@foreach (var item in Model)
+{
+    <li class="breadcrumb-item"><a href="~/tin-tuc/@item.name_category-@item.id_category">@item.name_category</a></li>
+}

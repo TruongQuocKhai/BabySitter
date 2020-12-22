@@ -1,0 +1,57 @@
+﻿@model IEnumerable<BabySitter.Models.Footer>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<div class="col-md-12 widget-holder">
+    <div class="widget-bg-transparent">
+        <div class="widget-body">
+            <hr />
+            <h5 class="box-title">Footer</h5>
+            <hr />
+            <div class="row">
+
+                @*<p>
+                    @Html.ActionLink("Create New", "Create")
+                </p>*@
+                <table class="table">
+                    <tr>
+                        <th>
+                            @Html.DisplayNameFor(model => model.contact)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.about_us)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.hide)
+                        </th>
+                        <th></th>
+                    </tr>
+
+                    @foreach (var item in Model)
+                    {
+                        <tr>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.contact)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.about_us)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.hide)
+                            </td>
+                            <td>
+                                @Html.ActionLink("Edit", "Edit", new { id = item.id_footer }) |
+                                @Html.ActionLink("Details", "Details", new { id = item.id_footer }) |
+                                @Html.ActionLink("Delete", "Delete", new { id = item.id_footer })
+                            </td>
+                        </tr>
+                    }
+
+                </table>
+            </div>
+        </div>
+    </div>
+</div>

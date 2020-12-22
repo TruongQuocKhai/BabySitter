@@ -1,0 +1,73 @@
+﻿@model BabySitter.Models.User
+
+
+<div class="container-menu-header-v3">
+    <div class="wrap_header3 p-t-74">
+        <!-- Logo -->
+        <a href="index.html" class="logo3">
+            <img src="~/Content/images/icons/logo.png" alt="IMG-LOGO">
+        </a>
+
+        <!-- Header Icon -->
+        <div class="header-icons3 p-t-38 p-b-60 p-l-8">
+            <a href="#" class="header-wrapicon1 dis-block">
+                <p>@Model.Name</p>
+                @*<img src="~/Content/images/icons/icon-header-01.png" class="header-icon1" alt="ICON">*@
+            </a>
+
+            <span class="linedivide1"></span>
+            @Html.Action("HeaderCart","Home")
+        </div>
+
+        <!-- Menu -->
+        <div class="wrap_menu">
+            <nav class="menu">
+                <ul class="main_menu">
+                    <li>
+                        <a href="~/">Home</a>
+
+                    </li>
+                    <li>
+                        <a href="~/tat-ca-san-pham">Sản Phẩm</a>
+                        <ul class="sub_menu">
+                            @Html.Action("Fashion", "Product")
+                        </ul>
+                    </li>
+               
+
+                    <li class="sale-noti">
+                        <a href="product.html">Giảm Giá</a>
+                    </li>
+
+                    <li>
+                        <a href="blog.html">Blog</a>
+                    </li>
+
+                    <li>
+                        <a href="about.html">Thông Tin</a>
+                    </li>
+
+                    <li>
+                        <a href="contact.html">Liên Hệ</a>
+                    </li>
+                    <li>
+                        <a href="@Url.Action("Logout","User")">Đăng Xuất</a>
+                    </li>
+                </ul>
+             
+            </nav>
+        </div>
+    </div>
+
+    <div class="bottombar flex-col-c p-b-65">
+        <div class="bottombar-social t-center p-b-8">
+            <a href="#" class="topbar-social-item fa fa-facebook"></a>
+            <a href="#" class="topbar-social-item fa fa-instagram"></a>
+            <a href="#" class="topbar-social-item fa fa-pinterest-p"></a>
+            <a href="#" class="topbar-social-item fa fa-snapchat-ghost"></a>
+            <a href="#" class="topbar-social-item fa fa-youtube-play"></a>
+        </div>
+
+        
+    </div>
+</div>

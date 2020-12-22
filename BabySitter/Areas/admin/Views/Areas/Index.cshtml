@@ -1,0 +1,48 @@
+﻿@model IEnumerable<BabySitter.Models.Area>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table table-hover">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.name_areas)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.hide)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.name_areas)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.hide)
+        </td>
+        <td>
+           
+                <a href="@Url.Action("Edit", "Areas", new { id=item.id_areas })" class="btn btn-outline-primary btn-rounded">Edit</a>
+                <a href="@Url.Action("Details", "Areas", new { id=item.id_areas })" class="btn btn-outline-primary btn-rounded">Chi Tiết</a>
+                @*<a href="@Url.Action("Delete", "Areas", new { id=item.id_areas })" class="btn btn-outline-primary btn-rounded">Xóa</a>*@
+          
+        </td>
+    </tr>
+}
+
+</table>
+<div class="btn-group btn-group-sm" style="float: none;">
+    
+    <button type="button" class="tabledit-delete-button btn btn-sm btn-default" style="float: none;">
+    <span class="glyphicon glyphicon-trash"></span>
+        </button>
+</div>

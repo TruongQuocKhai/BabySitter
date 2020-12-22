@@ -1,0 +1,59 @@
+﻿@model IEnumerable<BabySitter.Models.db_ServiceIntro>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<div class="col-md-12 widget-holder">
+    <div class="widget-bg-transparent">
+        <div class="widget-body">
+            <h5 class="box-title">Danh sách các bài viết</h5>
+            <hr />
+            <div class="row">
+                <table class="table">
+                    <tr>
+                        <th>
+                                @Html.DisplayNameFor(model => model.service)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.intro)
+                            </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.hide)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.datebegin)
+                        </th>
+                        <th></th>
+                    </tr>
+
+                    @foreach (var item in Model)
+                    {
+                        <tr>
+                            <td style="display: block;border: 1px solid #51d2b7;padding: 5px;margin-top: 5px;width: auto;height: 300px;overflow: auto;">
+                                   @Html.Raw(item.service)
+                                </td>
+                                <td style="display: block;border: 1px solid #51d2b7;padding: 5px;margin-top: 5px;width: auto;height: 300px;overflow: auto;">
+                                   @Html.Raw(item.intro)
+                                </td>
+                            <td></td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.hide)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.datebegin)
+                            </td>
+                            <td>
+                                @*@Html.ActionLink("Edit", "Edit", new { id = item.id_serviceintro }) |*@
+                                @Html.ActionLink("Details", "Details", new { id = item.id_serviceintro }) |
+                                @Html.ActionLink("Delete", "Delete", new { id = item.id_serviceintro })
+                            </td>
+                        </tr>
+                    }
+
+                </table>
+            </div>
+        </div>
+    </div>
+</div>

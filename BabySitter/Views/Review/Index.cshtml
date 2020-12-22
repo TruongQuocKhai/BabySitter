@@ -1,0 +1,82 @@
+﻿@model IEnumerable<BabySitter.Models.db_Review>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.name_review)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.title_review)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.mail_review)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.phone_review)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.mess_review)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.hide)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.order)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.datebegin)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Star.StarReview)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.name_review)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.title_review)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.mail_review)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.phone_review)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.mess_review)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.hide)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.order)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.datebegin)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Star.StarReview)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.id_review }) |
+            @Html.ActionLink("Details", "Details", new { id=item.id_review }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.id_review })
+        </td>
+    </tr>
+}
+
+</table>

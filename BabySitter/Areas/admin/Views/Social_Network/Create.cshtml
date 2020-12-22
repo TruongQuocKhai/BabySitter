@@ -1,0 +1,78 @@
+﻿@model BabySitter.Models.Social_Network
+
+@{
+    ViewBag.Title = "Create";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<div class="row">
+    <div class="col-md-12 widget-holder">
+        <div class="widget-bg">
+            <div class="widget-body clearfix">
+                <a href="https://www.flaticon.com/">Download Free Icon</a>
+                <hr />
+
+                @using (Html.BeginForm("Create", "Social_Network", FormMethod.Post, new { enctype = "multipart/form-data" }))
+                {
+                    @Html.AntiForgeryToken()
+
+                    <div class="form-horizontal">
+                        <h4>Social_Network</h4>
+                        <hr />
+                        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                        <div class="form-group row">
+                            @Html.LabelFor(model => model.id_Social_Network, htmlAttributes: new { @class = "col-md-3 col-form-label" })
+                            <div class="col-md-1">
+                                @Html.EditorFor(model => model.id_Social_Network, new { htmlAttributes = new { @class = "form-control", required = true } })
+                                @Html.ValidationMessageFor(model => model.id_Social_Network, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+
+                        <div class="form-group row">
+                            @Html.LabelFor(model => model.Social_Network1, htmlAttributes: new { @class = "col-md-3 col-form-label" })
+                            <div class="col-md-9">
+                                @Html.EditorFor(model => model.Social_Network1, new { htmlAttributes = new { @class = "form-control", required = true } })
+                                @Html.ValidationMessageFor(model => model.Social_Network1, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+                        <div class="form-group row">
+
+                            @Html.Label("Hình đại diện", htmlAttributes: new { @class = "col-md-3 col-form-label" })
+                            <div class="fallback" data-toggle="dropzone">
+                                <input type="file" name="icon" id="img" accept=".jpg,.png,.gif,.jpeg,.bmp" multiple="multiple" />
+                                @*<img src="~/Content/upload/@Model.icon" />*@
+                            </div>
+                        </div>
+                        @*<div class="form-group row">
+                                @Html.LabelFor(model => model.hide, htmlAttributes: new { @class = "col-md-3 col-form-label" })
+                                <div class="col-md-9">
+                                    <div class="checkbox">
+                                        @Html.EditorFor(model => model.hide)
+                                        @Html.ValidationMessageFor(model => model.hide, "", new { @class = "text-danger" })
+                                    </div>
+                                </div>
+                            </div>*@
+
+                        <div class="form-group row">
+                            @Html.LabelFor(model => model.order, htmlAttributes: new { @class = "col-md-3 col-form-label" })
+                            <div class="col-md-1">
+                                @Html.EditorFor(model => model.order, new { htmlAttributes = new { @class = "form-control" } })
+                                @Html.ValidationMessageFor(model => model.order, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <div class="col-md-offset-2 col-md-10">
+                                <input type="submit" value="Create" class="btn btn-default" />
+                            </div>
+                        </div>
+                    </div>
+                }
+
+                <div>
+                    @Html.ActionLink("Back to List", "Index")
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

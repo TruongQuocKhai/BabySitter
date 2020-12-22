@@ -1,0 +1,39 @@
+﻿@model BabySitter.Models.Contact
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Contact</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+Address        </dt>
+
+        <dd>
+            @Html.Raw(Model.address)    
+        </dd>
+
+        <dt>
+Call Center        </dt>
+
+        <dd>
+            @Html.Raw(Model.callcenter)
+        </dd>
+
+        <dt>
+E-Mail Hỗ trợ        </dt>
+
+        <dd>
+            @Html.Raw(Model.electronicsupport)
+        </dd>
+    </dl>
+</div>
+<h4>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.id_Contact }) |
+    @Html.ActionLink("Back to List", "Index")
+</h4>

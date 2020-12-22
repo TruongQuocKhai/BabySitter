@@ -1,0 +1,56 @@
+﻿@model IEnumerable<BabySitter.Models.Contact>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+<div class="col-md-12 widget-holder">
+    <div class="widget-bg-transparent">
+        <div class="widget-body">
+        <hr />
+            <h5 class="box-title">Địa chỉ liên hệ</h5>
+            <hr />
+            <div class="row">
+
+                <table class="table">
+                    <tr>
+                        <th class="text-center">
+                            @Html.DisplayNameFor(model => model.address)
+                        </th>
+                        <th class="text-center">
+                            @Html.DisplayNameFor(model => model.callcenter)
+                        </th>
+                        <th class="text-center">
+                            @Html.DisplayNameFor(model => model.electronicsupport)
+                        </th>
+                        <th class="text-center">
+                            @Html.DisplayNameFor(model => model.hide)
+                        </th>
+                        <th></th>
+                    </tr>
+
+                    @foreach (var item in Model)
+                    {
+                        <tr>
+                            <td>
+                                @Html.Raw(item.address)
+                            </td>
+                            <td>
+                                @Html.Raw(item.callcenter)
+                            </td>
+                            <td>
+                                @Html.Raw(item.electronicsupport)
+                            </td>
+                            <td style="text-align:center">
+                                @Html.DisplayFor(modelItem => item.hide)
+                            </td>
+                            <td>
+                                @Html.ActionLink("Edit", "Edit", new { id = item.id_Contact }) |
+                                @Html.ActionLink("Details", "Details", new { id = item.id_Contact }) |
+                                @*@Html.ActionLink("Delete", "Delete", new { id = item.id_Contact })*@
+                            </td>
+                        </tr>
+                    }
+
+                </table>
+                </div></div></div></div>

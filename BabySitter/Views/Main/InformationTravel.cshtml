@@ -1,0 +1,79 @@
+﻿@using BabySitter.Models;
+@using PagedList.Mvc;
+@model PagedList.PagedList<InformationTravel>
+@{
+    ViewBag.Title = "InformationTravel";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<div id="heading-breadcrumbs">
+    <div class="container">
+        <div class="row d-flex align-items-center flex-wrap">
+            <div class="col-md-7">
+                <h1 class="h2">Information Travel</h1>
+            </div>
+            <div class="col-md-5">
+                <ul class="breadcrumb d-flex justify-content-end">
+                    <li class="breadcrumb-item"><a href="index.html">Home</a></li>
+                    <li class="breadcrumb-item active">Information Travel</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+<div id="content">
+    <div class="container">
+        <div class="row bar">
+            <div class="col-md-9">
+
+                <div class="row products products-big">
+                    @foreach (var item in Model)
+                    {
+                        <div class="col-lg-4 col-md-6">
+                            <div class="product">
+                                <div class="image" style="min-height:unset"><a href="~/InformationTravel/@item.meta-@item.id_InformationTravel"><img src="~/Content/upload/@item.img" alt="" class="img-fluid image1"></a></div>
+                                <div class="text">
+                                    <h3 class="h5"><a href="~/InformationTravel/@item.meta-@item.id_InformationTravel">@item.title</a></h3>
+
+                                </div>
+                            </div>
+                        </div>
+                    }
+                </div>              
+                <div class="pages">
+                    <p class="loadMore text-center"><a href="#" class="btn btn-template-outlined"><i class="fa fa-chevron-down"></i>  Trang @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber)/@Model.PageCount</a></p>
+                    <nav aria-label="Page navigation example" class="d-flex justify-content-center">
+                        <div class="listpage">
+                            @Html.PagedListPager(Model, page => Url.Action("Index", new { page = page, @class = "page-item" }))
+                        </div>
+                        <style>
+                        
+                            .listpage li {
+                                display: inline;
+                                position: relative;
+                                display: block;
+                                padding: .5rem .75rem;
+                                margin-left: -1px;
+                                line-height: 1.25;
+                                color: #007bff;
+                                background-color: #fff;
+                                border: 1px solid #dee2e6;
+                            }
+                        </style>
+                        
+                    </nav>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <!-- MENUS AND FILTERS-->
+                <div class="panel panel-default sidebar-menu">
+                    <div class="panel-heading">
+                        <h3 class="h4 panel-title">Categories</h3>
+                    </div>
+                    <div class="panel-body">
+                        @Html.Action("listAreas","Chil")
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

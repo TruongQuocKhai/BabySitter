@@ -1,0 +1,51 @@
+﻿@model BabySitter.Models.ServiceIndex
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>ServiceIndex</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Terms_Condition)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Terms_Condition)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Brief_Introduction)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Brief_Introduction)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Special_Requirements)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Special_Requirements)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.hide)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.hide)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.id_serviceindex }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

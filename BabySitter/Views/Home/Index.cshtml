@@ -1,0 +1,57 @@
+﻿
+@{
+    ViewBag.Title = "Trang chủ";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+
+<!-- Hero Section-->
+<section class="hero hero-home no-padding">
+    <!-- Hero Slider-->
+    <div class="owl-carousel owl-theme hero-slider">
+        <div style="background: url(../Content/img/hero-bg-3.jpg);" class="item d-flex align-items-center has-pattern">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-6">
+                        <h1 style="color: white">Modern</h1>
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div style="background: url(../Content/img/van2.jpg);" class="item d-flex align-items-center">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-6 text-white">
+                        <h1 style="color: black">StreetStyle</h1>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div style="background: url(../Content/img/van1.jpg);" class="item d-flex align-items-center">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-6 text-white">
+                        <h1 style="color: black">For Life</h1>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+@Html.Action("List8ProductNew","Product")
+
+<section class="women-collection">
+    <div class="container">
+        <header class="text-center">
+            <h2 class="text-uppercase"><small>Hot Collection</small>Sản Phẩm Bán Chạy</h2>
+        </header>
+        <!-- Products Slider-->
+        <div class="owl-carousel owl-theme products-slider">
+            <!-- item-->
+            @Html.Action("Seller", "Product")
+          
+        </div>
+    </div>
+</section>

@@ -1,0 +1,115 @@
+﻿@model IEnumerable<BabySitter.Models.CategoryPaint>
+
+@{
+    ViewBag.Title = "danh mục sản phẩm";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<h2> Danh Mục</h2>
+
+<p>
+    <h5 class="box-title">Sản phẩm: <a href="@Url.Action("Create", "CategoryPaints")" class="btn btn-outline-primary btn-rounded">thêm mới</a></h5>
+</p>
+<table class="table">
+    <tr>
+        <th>
+            Tên:
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.MetaTitle)
+        </th>
+        @*<th>
+            @Html.DisplayNameFor(model => model.ParentID)
+        </th>*@
+        <th>
+            @Html.DisplayNameFor(model => model.DisplayOrder)
+        </th>
+        @*<th>
+            @Html.DisplayNameFor(model => model.SeoTitle)
+        </th>*@
+        <th>
+            Ngày Tạo:
+        </th>
+        @*<th>
+            @Html.DisplayNameFor(model => model.CreatedBy)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ModifiedDate)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ModifiedBy)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.MetaKeywords)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.MetaDescriptions)
+        </th>*@
+        <th>
+            Trạng thái:
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ShowOnHome)
+        </th>
+        @*<th>
+            @Html.DisplayNameFor(model => model.Language)
+        </th>*@
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Name)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.MetaTitle)
+        </td>
+        @*<td>
+            @Html.DisplayFor(modelItem => item.ParentID)
+        </td>*@
+        <td>
+            @Html.DisplayFor(modelItem => item.DisplayOrder)
+        </td>
+        @*<td>
+            @Html.DisplayFor(modelItem => item.SeoTitle)
+        </td>*@
+        <td>
+            @Html.DisplayFor(modelItem => item.CreatedDate)
+        </td>
+        @*<td>
+            @Html.DisplayFor(modelItem => item.CreatedBy)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ModifiedDate)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ModifiedBy)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.MetaKeywords)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.MetaDescriptions)
+        </td>*@
+        <td>
+            @Html.DisplayFor(modelItem => item.Status)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ShowOnHome)
+        </td>
+        @*<td>
+            @Html.DisplayFor(modelItem => item.Language)
+        </td>*@
+        <td>
+            <footer class="mr-t-30">
+                <a href="@Url.Action("Edit", "CategoryPaints", new { id=item.ID })" class="btn btn-outline-primary btn-rounded">sửa</a>
+           
+                <a href="@Url.Action("Delete", "CategoryPaints", new { id=item.ID })" class="btn btn-outline-primary btn-rounded">Xóa</a>
+            </footer>
+         
+        </td>
+    </tr>
+}
+
+</table>

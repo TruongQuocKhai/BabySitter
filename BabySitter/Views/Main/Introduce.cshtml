@@ -1,0 +1,20 @@
+﻿@model IEnumerable<BabySitter.Models.db_ServiceIntro>
+
+@{
+    ViewBag.Title = "Introduce";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<section class="padding-small">
+    <div class="container">
+        <header>
+            @foreach (var service in Model)
+            {
+                <h2 class="h1">@Html.Raw(@service.service)</h2>
+
+                <p class="lead text-muted">@Html.Raw(@service.intro)</p>
+            }
+        </header>
+      
+    </div>
+</section>

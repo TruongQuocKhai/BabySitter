@@ -1,0 +1,94 @@
+﻿@model List<BabySitter.Models.CartItem>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@section jsFooter{
+    <script src="~/assets/client/js/controller/cartController.js"></script>
+}
+
+<section class="hero hero-page gray-bg padding-small">
+    <div class="container">
+        <div class="row d-flex">
+            <div class="col-lg-9 order-2 order-lg-1">
+                <h1>Shopping cart</h1><p class="lead text-muted">You currently have 3 items in your shopping cart</p>
+            </div>
+            <div class="col-lg-3 text-right order-1 order-lg-2">
+                <ul class="breadcrumb justify-content-lg-end">
+                    <li class="breadcrumb-item"><a href="index-2.html">Home</a></li>
+                    <li class="breadcrumb-item active">Shopping cart</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- Shopping Cart Section-->
+<section class="shopping-cart">
+    <div class="container">
+        <div class="basket">
+            <div class="basket-holder">
+                @if (Model.Count > 0)
+                {
+                    <div class="basket-header">
+                        <div class="row">
+                            <div class="col-5">Product</div>
+                            <div class="col-2">Price</div>
+                            <div class="col-2">Quantity</div>
+                            <div class="col-2">Total</div>
+                            <div class="col-1 text-center">Remove</div>
+                        </div>
+                    </div>
+                    <div class="basket-body">
+                        <!-- Product-->
+                        @foreach (var item in Model)
+                        {
+                            <div class="item">
+                                <div class="row d-flex align-items-center">
+                                    <div class="col-5">
+                                        <div class="d-flex align-items-center">
+                                            <img src="~/Content/upload/@item.Product.Image" alt="..." class="img-fluid">
+                                            <div class="title">
+                                                <a href="detail.html">
+                                                    <h5>@item.Product.Name</h5><span class="text-muted">Size: Large</span>
+                                                </a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-2"><span>@item.Product.Price.GetValueOrDefault(0).ToString("N0")</span></div>
+                                    <div class="col-2">
+                                        <div class="d-flex align-items-center">
+                                            <div class="quantity d-flex align-items-center">
+                                                <div class="dec-btn">-</div>
+                                                <input type="text" class="txtQuantity quantity-no" data-id="@item.Product.ID" value="@item.Quantity">
+                                                <div class="inc-btn">+</div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-2"><span>@((item.Product.Price.GetValueOrDefault(0) * item.Quantity).ToString("N0"))</span></div>
+                                    <div class="col-1 text-center"><i class="delete fa fa-trash"></i></div>
+                                </div>
+                            </div>
+
+                        }
+
+                    </div>
+                }
+                else
+                {
+                    <span class="alert alert-danger">Chưa có sản phẩm nào trong giỏ hàng</span>
+                }
+            </div>
+
+        </div>
+    </div>
+    <div class="container">
+        <div class="CTAs d-flex align-items-center justify-content-center justify-content-md-end flex-column flex-md-row">
+            <a href="#" id="btnContinue" class="btn btn-template-outlined wide">Tiếp tục mua hàng</a>
+            <a href="#" id="btnUpdate" class="btn btn-template wide">Cập Nhật</a>
+            <a href="#" id="btnPayment" class="btn btn-template">Thanh Toán</a>
+            <a href="#" id="btnDeleteAll" class="btn btn-template">Xóa Toàn Bộ</a>
+
+        </div>
+    </div>
+</section>

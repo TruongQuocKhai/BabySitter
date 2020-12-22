@@ -1,0 +1,43 @@
+﻿@model BabySitter.Models.Province
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Province</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.nameProvince)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.nameProvince)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.hide)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.hide)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Area.name_areas)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Area.name_areas)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.id_province }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

@@ -1,0 +1,67 @@
+﻿@model IEnumerable<BabySitter.Models.ServiceIndex>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+
+<div class="col-md-12 widget-holder">
+    <div class="widget-bg-transparent">
+        <div class="widget-body">
+            <h5 class="box-title">Danh sách các bài viết</h5>
+            <hr />
+            <div class="row">
+                <table class="table">
+                    <tr>
+                        <th>
+                            <a class="portfolio-link" data-toggle="modal" href="#servicemodel2">
+                                @Html.DisplayNameFor(model => model.Terms_Condition)
+                            </a>
+                        </th>
+                        <th>
+                            <a class="portfolio-link" data-toggle="modal" href="#servicemodel1">
+
+                                @Html.DisplayNameFor(model => model.Brief_Introduction)
+                            </a>
+                        </th>
+                        <th>
+                            <a class="portfolio-link" data-toggle="modal" href="#servicemodel3">
+
+                                @Html.DisplayNameFor(model => model.Special_Requirements)
+                            </a>
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.hide)
+                        </th>
+                        <th></th>
+                    </tr>
+
+                    @foreach (var item in Model)
+                    {
+                        <tr>
+                            <td>
+                                @Html.Raw(item.Terms_Condition)
+                            </td>
+                            <td>
+                                @Html.Raw(item.Brief_Introduction)
+                            </td>
+                            <td>
+                                @Html.Raw(item.Special_Requirements)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.hide)
+                            </td>
+                            <td>
+                                @Html.ActionLink("Edit", "Edit", new { id = item.id_serviceindex }) |
+                                @Html.ActionLink("Details", "Details", new { id = item.id_serviceindex })
+                                @*@Html.ActionLink("Delete", "Delete", new { id = item.id_serviceindex })*@
+                            </td>
+                        </tr>
+                    }
+
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
